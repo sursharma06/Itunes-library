@@ -10,7 +10,6 @@ class App extends Component {
       isLoaded: false,
       albums: [],
     };
-    this.artistSearch('adele');
   }
 
   artistSearch = (ARTIST_NAME) => {
@@ -18,6 +17,7 @@ class App extends Component {
       .then(res => res.json())
       .then(
         (result) => {
+          console.log('this is working', result);
           this.setState({
             isLoaded: true,
             albums: result,

@@ -1,26 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Search = ({ artistSearch }) => {
+class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: '',
+    };
+  }
 
-  const handleInputChange = (e) => {
-      console.log(e.target.value);
+  handleInputChange = (e) => {
       const searchTerm = e.target.value;
-      artistSearch(searchTerm);
+      this.setState({
+        search: searchTerm,
+      });
+      console.log(searchTerm);
     };
 
-  return (
-    <div>
-    <form>
-    <div className="form-group row">
-    <label htmlFor="inputArtist" className="col-sm-2 col-form-label">iTunes Library</label>
-    <div className="col-sm-8">
-      <input type="text" className="form-control" id="artistName" placeholder="Search for an Artist"/>
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let searchText = this.refs.searchText;
+    this.props.artistSearch(this.state.search);
+    searchText.value = '';
+  };
+
+  render () {
+    return (
+      <div>
+      <form>
+        <div className="form-group row">
+          <label htmlFor="inputArtist" className="col-sm-2 col-form-label">iTunes Library</label>
+          <div className="col-sm-8">
+            <input ref='searchText' onChange={this.handleInputChange} type="text" className="form-control" id="artistName" placeholder="Search for an Artist"/>
+          </div>
+       </div>
+       <button onClick={this.handleSubmit} className="btn btn-info mb-2">Search</button>
+      </form>
     </div>
-  </div>
-  <button type="submit" className="btn btn-info mb-2">Search</button>
-</form>
-    </div>
-    );
+      );
+  }
 };
 
 export default Search;
