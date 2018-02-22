@@ -9,12 +9,16 @@ const Search = ({ artistSearch }) => {
     };
 
   return (
-      <div className="form-group">
-    <label htmlFor="search" className="col-sm-2 control-label"></label>
-    <div className="col-sm-8" onChange = {handleInputChange}>
-      <input type="text" className="form-control" id="artist" placeholder="Search for an artist" />
+    <div>
+    <form>
+    <div className="form-group row">
+    <label htmlFor="inputArtist" className="col-sm-2 col-form-label">iTunes Library</label>
+    <div className="col-sm-8">
+      <input type="text" className="form-control" id="artistName" placeholder="Search for an Artist"/>
     </div>
-    <button type="button" className="btn btn-info">Search</button>
+  </div>
+  <button type="submit" className="btn btn-info mb-2">Search</button>
+</form>
     </div>
     );
 };
