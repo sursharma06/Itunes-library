@@ -1,28 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export default (props) => {
 
   return (
-    <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img className="d-block w-100" src="..." alt="First slide">
-        </div>
-        <div className="carousel-item">
-          <img className="d-block w-100" src="..." alt="Second slide">
-        </div>
-        <div className="carousel-item">
-          <img className="d-block w-100" src="..." alt="Third slide">
-        </div>
+    <div>
+      <nav className="navbar navbar-light bg-light">
+        <a className="navbar-brand">
+          <img src="/headerIcon.png" width="30" height="30" margin-right="5px" className="d-inline-block align-top" alt=""/>
+            <span> </span>iTunes
+        </a>
+      </nav>
     </div>
-      <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="sr-only">Previous</span>
-      </a>
-      <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="sr-only">Next</span>
-      </a>
-    </div>
-  )
-}
+  );
+};

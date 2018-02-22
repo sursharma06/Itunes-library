@@ -43,6 +43,7 @@ class App extends Component {
     const albums = this.state.albums;
     return (
       <div className="App">
+        <Header />
         <Search artistSearch = {this.artistSearch}/>
         { (searchValue) ? <AlbumDetail albums={albums}/> : null }
       </div>

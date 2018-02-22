@@ -29,7 +29,7 @@ class Search extends Component {
       <div style={{ paddingTop: '20px' }}>
       <form>
         <div className="form-group row">
-          <label htmlFor="inputArtist" className="col-sm-2 col-form-label">iTunes Library</label>
+          <label htmlFor="inputArtist" className="col-sm-2 col-form-label"></label>
           <div className="col-sm-8">
             <input ref='searchText' onChange={this.handleInputChange} type="text" className="form-control" id="artistName" placeholder="Search for an Artist"/>
           </div>
