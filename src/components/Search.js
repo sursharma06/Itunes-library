@@ -13,19 +13,20 @@ class Search extends Component {
       this.setState({
         search: searchTerm,
       });
-      console.log(searchTerm);
+      //console.log(searchTerm);
     };
 
   handleSubmit = (e) => {
     e.preventDefault();
     let searchText = this.refs.searchText;
     this.props.artistSearch(this.state.search);
+
     searchText.value = '';
   };
 
   render () {
     return (
-      <div>
+      <div style={{ paddingTop: '20px' }}>
       <form>
         <div className="form-group row">
           <label htmlFor="inputArtist" className="col-sm-2 col-form-label">iTunes Library</label>

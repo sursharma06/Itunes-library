@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Search from './components/Search';
+import AlbumDetail from './components/AlbumDetail';
 import './App.css';
 
 class App extends Component {
@@ -9,11 +10,13 @@ class App extends Component {
       error: null,
       isLoaded: false,
       albums: [],
+      searchValue: false,
+
     };
   }
 
   artistSearch = (ARTIST_NAME) => {
-    fetch(`https://itunes.apple.com/search?term=${ARTIST_NAME}&entity=album`)
+    fetch(`https://itunes.apple.com/search?term=${ARTIST_NAME}&entity=album&limit=10`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -21,6 +24,7 @@ class App extends Component {
           this.setState({
             isLoaded: true,
             albums: result,
+            searchValue: !this.state.searchValue,
           });
         },
 
@@ -34,9 +38,12 @@ class App extends Component {
   };
 
   render() {
+    const searchValue = this.state.searchValue;
+    const albums = this.state.albums;
     return (
       <div className="App">
         <Search artistSearch = {this.artistSearch}/>
+        { (searchValue) ? <AlbumDetail albums={albums}/> : null }
       </div>
     );
   }
