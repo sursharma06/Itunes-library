@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Search from './components/Search';
 import './App.css';
 
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
   }
 
   artistSearch = (ARTIST_NAME) => {
-    fetch(`https://itunes.apple.com/search?term=${ARTIST_NAME}`)
+    fetch(`https://itunes.apple.com/search?term=${ARTIST_NAME}&entity=album`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -35,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
+        <Search artistSearch = {this.artistSearch}/>
       </div>
     );
   }
