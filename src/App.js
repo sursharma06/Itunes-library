@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from './components/Search';
 import AlbumDetail from './components/AlbumDetail';
+import Header from './components/presentation/Header';
 import './App.css';
 
 class App extends Component {
